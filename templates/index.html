@@ -10,7 +10,7 @@
         <div style="text-align: center;">
             <label for="grade">Select Grade:</label>
             <select name="grade" id="grade" required>
-                <option value="" disabled selected>Select Grade</option>
+                <option value="" disabled {% if not selected_grade %}selected{% endif %}>Select Grade</option>
                 {% for grade in grades %}
                     <option value="{{grade}}" {% if grade == selected_grade %}selected{% endif %}>{{grade}}</option>
                 {% endfor %}
@@ -19,7 +19,7 @@
         {% if contacts %}
         <div style="text-align: center; margin: 10px;">
             <label>Contacts for {{selected_grade}}:</label>
-            <ul>
+            <ul style="list-style-type: none; padding: 0;">
                 {% for contact in contacts %}
                     <li>{{contact}}</li>
                 {% endfor %}
@@ -27,15 +27,15 @@
         </div>
         {% endif %}
         <div style="text-align: center;">
-            <label for="message">Message:</label>
-            <textarea name="message" id="message" rows="4" cols="50" required>{{message}}</textarea>
+            <label for="message">Message:</label><br>
+            <textarea name="message" id="message" rows="4" cols="80" required>{{message}}</textarea>
         </div>
-        <div style="text-align: center;">
+        <div style="text-align: center; margin-top: 10px;">
             <button type="submit">Send Bulk Message</button>
         </div>
     </form>
     {% if sent %}
-    <div style="text-align: center; color: green;">
+    <div style="text-align: center; color: green; margin-top: 20px;">
         <strong>Messages sent to selected grade contacts!</strong>
     </div>
     {% endif %}

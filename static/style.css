@@ -2,7 +2,16 @@ body {
     font-family: Arial, sans-serif;
 }
 textarea {
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     display: block;
+    font-size: 1rem;
+}
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
 }
